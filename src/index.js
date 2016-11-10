@@ -6,7 +6,7 @@ const app = express();
 
 
 function checkParam(p) {
-  return p << 0;
+  return p << 0; // eslint-disable-line
 }
 
 app.use(cors());
