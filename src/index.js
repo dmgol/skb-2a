@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import XRegExp from 'xregexp';
 
+import extractName from './extractName';
+
 const app = express();
 
 
@@ -45,6 +47,13 @@ app.get('/task2b', (req, res) => {
   const name = convertFullname(req.query.fullname);
   console.log(`name = ${name}`);
   res.send(name);
+});
+
+app.get('/task2c', (req, res) => {
+  console.log(req.query);
+  const name = extractName(req.query.username);
+  console.log(`name = ${name}`);
+  res.send(`@${name}`);
 });
 
 app.listen(3000, () => console.log('app listening on port 3000'));
